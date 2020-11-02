@@ -8,8 +8,12 @@
 import React from "react"
 import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
-
+import {Layout as StyledLayout, Main,Container} from "theme-ui"
 import Header from "./header"
+//import { ThemeProvider } from 'emotion-theming'
+import { ThemeProvider, ColorMode } from 'theme-ui'
+
+//import theme from "../components/gatsby-plugin-theme-ui/index"
 import "./layout.css"
 
 const Layout = ({ children }) => {
@@ -24,24 +28,23 @@ const Layout = ({ children }) => {
   `)
 
   return (
-    <>
-      <Header siteTitle={data.site.siteMetadata.title} />
-      <div
-        style={{
-          margin: `0 auto`,
-          maxWidth: 960,
-          padding: `0px 1.0875rem 1.45rem`,
-          paddingTop: 0,
-        }}
-      >
-        <main>{children}</main>
-        <footer>
-          © {new Date().getFullYear()}, Built with
-          {` `}
-          <a href="https://www.gatsbyjs.org">Gatsby</a>
-        </footer>
-      </div>
-    </>
+
+	<StyledLayout>
+	    <Container>
+	      <Header siteTitle={data.site.siteMetadata.title} />
+	      <div
+
+	      >
+	        <main>{children}</main>
+	        <footer>
+	          © {new Date().getFullYear()}, Built with
+	          {` `}
+	          <a href="https://www.gatsbyjs.org">Gatsby js</a>
+	        </footer>
+	      </div>
+	    </Container>
+    </StyledLayout>
+
   )
 }
 
